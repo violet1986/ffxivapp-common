@@ -1,5 +1,5 @@
 ﻿// FFXIVAPP.Common
-// ItemInfo.cs
+// INetworkPacket.cs
 // 
 // Copyright © 2007 - 2015 Ryan Wilson - All Rights Reserved
 // 
@@ -28,48 +28,15 @@
 // POSSIBILITY OF SUCH DAMAGE. 
 
 using System;
-using FFXIVAPP.Common.Core.Memory.Interfaces;
 
-namespace FFXIVAPP.Common.Core.Memory
+namespace FFXIVAPP.Common.Core.Network.Interfaces
 {
-    public class ItemInfo : IItemInfo
+    public interface INetworkPacket
     {
-        public int Slot { get; set; }
-        public uint ID { get; set; }
-        public uint SB { get; set; }
-        public uint GlamourID { get; set; }
-        public uint Amount { get; set; }
-        public bool IsHQ { get; set; }
-        public decimal SBPercent
-        {
-            get
-            {
-                try
-                {
-                    return (decimal) (Convert.ToDouble(SB) / Convert.ToDouble(10000));
-                }
-                catch
-                {
-                    return 0;
-                }
-            }
-        }
-
-        public uint Durability { get; set; }
-
-        public decimal DurabilityPercent
-        {
-            get
-            {
-                try
-                {
-                    return (decimal) (Convert.ToDouble(Durability) / Convert.ToDouble(30000));
-                }
-                catch
-                {
-                    return 0;
-                }
-            }
-        }
+        uint Key { get; set; }
+        byte[] Buffer { get; set; }
+        int CurrentPosition { get; set; }
+        int MessageSize { get; set; }
+        DateTime PacketDate { get; set; }
     }
 }

@@ -38,6 +38,7 @@ namespace FFXIVAPP.Common.Core.Constant.Interfaces
         string UIScale { get; set; }
         Dictionary<string, string> AutoTranslate { get; set; }
         Dictionary<string, string> ChatCodes { get; set; }
+        Dictionary<string, ActionInfo> Actions { get; set; }
         string ChatCodesXml { get; set; }
         Dictionary<string, string[]> Colors { get; set; }
         CultureInfo CultureInfo { get; set; }
@@ -45,5 +46,8 @@ namespace FFXIVAPP.Common.Core.Constant.Interfaces
         string ServerName { get; set; }
         string GameLanguage { get; set; }
         bool EnableHelpLabels { get; set; }
+        bool EnableNLog { get; set; }
+        bool EnableNetworkReading { get; set; }
+
     }
 }

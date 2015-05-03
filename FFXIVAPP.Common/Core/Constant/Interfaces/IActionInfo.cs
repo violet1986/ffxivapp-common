@@ -1,5 +1,5 @@
 ﻿// FFXIVAPP.Common
-// ItemInfo.cs
+// IActionInfo.cs
 // 
 // Copyright © 2007 - 2015 Ryan Wilson - All Rights Reserved
 // 
@@ -27,49 +27,19 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 // POSSIBILITY OF SUCH DAMAGE. 
 
-using System;
-using FFXIVAPP.Common.Core.Memory.Interfaces;
-
-namespace FFXIVAPP.Common.Core.Memory
+namespace FFXIVAPP.Common.Core.Constant.Interfaces
 {
-    public class ItemInfo : IItemInfo
+    public interface IActionInfo
     {
-        public int Slot { get; set; }
-        public uint ID { get; set; }
-        public uint SB { get; set; }
-        public uint GlamourID { get; set; }
-        public uint Amount { get; set; }
-        public bool IsHQ { get; set; }
-        public decimal SBPercent
-        {
-            get
-            {
-                try
-                {
-                    return (decimal) (Convert.ToDouble(SB) / Convert.ToDouble(10000));
-                }
-                catch
-                {
-                    return 0;
-                }
-            }
-        }
-
-        public uint Durability { get; set; }
-
-        public decimal DurabilityPercent
-        {
-            get
-            {
-                try
-                {
-                    return (decimal) (Convert.ToDouble(Durability) / Convert.ToDouble(30000));
-                }
-                catch
-                {
-                    return 0;
-                }
-            }
-        }
+        string ZH { get; set; }
+        string JA { get; set; }
+        string EN { get; set; }
+        string FR { get; set; }
+        string DE { get; set; }
+        string ZH_HelpLabel { get; set; }
+        string JA_HelpLabel { get; set; }
+        string EN_HelpLabel { get; set; }
+        string FR_HelpLabel { get; set; }
+        string DE_HelpLabel { get; set; }
     }
 }
